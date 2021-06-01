@@ -557,7 +557,7 @@ namespace kitronik_lab_bit {
     }
 
 	/**
-     * Will turn off all the traffic light LED's 
+     * Will turn off all the LED's on the selected traffic light
      */
     //% subcategory="Traffic Light"
     //% blockId=kitronik_labbit_traffic_light_off
@@ -567,7 +567,7 @@ namespace kitronik_lab_bit {
         let buf = pins.createBuffer(2)
         let value = 0
         readOutputPort()
-
+        // check which traffic light selected and set pins to a logic 1 to turn off the LED's
         if (selectedLight == TrafficLight.one){
             value = output0Value | 0x07
         }
@@ -594,7 +594,7 @@ namespace kitronik_lab_bit {
         if (initialised == false) {
             setup()
         }
-        
+        //switch value of dice roll and set value to the require byte for the required dice symbol
         switch (diceRoll) {
             case 1:
                 value = DICE_SYMBOL_1
@@ -636,8 +636,10 @@ namespace kitronik_lab_bit {
         {
             diceNumber = 9
         }
+        //take readings of the other port value due to two pins are on the other port
         readOutputPort()
         output0Value & (0xFF - TRAFFIC_LIGHT_2_G_MASK)
+        //set the port values with masking on port0 so not to effect any traffic light that are currently set
         switch (diceNumber) {
             case 0:
                 port0Value = DICE_NUMBER_0[0] + (output0Value & 0x3F)
@@ -680,7 +682,7 @@ namespace kitronik_lab_bit {
                 port1Value = DICE_NUMBER_9[1]
                 break
             }
-
+        //write new values to the IO expander
         writeOutputPortDoubleByte(port0Value, port1Value)
     }
 
@@ -696,7 +698,7 @@ namespace kitronik_lab_bit {
         let port0Value = 0
         let port1Value = 0
         readOutputPort()
-        
+        //set all the dice led bits to 1 to turn the LED off
         port0Value = output0Value | 0xC0
         port1Value = 0xFF
         writeOutputPortDoubleByte(port0Value, port1Value)
@@ -1138,11 +1140,10 @@ namespace kitronik_lab_bit {
     //%color=#00A654
     //% speed.min=0 speed.max=100
     export function motorOn(newMotorDir: MotorDirection, speed: number): void {
-        //let OutputVal = 0
 
         /*first convert 0-100 to 0-1024 (approx) We wont worry about the lsat 24 to make life simpler*/
         let OutputVal = Math.clamp(0, 100, speed) * 10;
-        
+        //depending on the selected direction set the PWM speed on the required pin
         switch (newMotorDir) {
             case MotorDirection.CW:
                 pins.analogWritePin(AnalogPin.P16, OutputVal);
@@ -1154,11 +1155,7 @@ namespace kitronik_lab_bit {
                 basic.pause(100)
                 pins.digitalWritePin(DigitalPin.P16, 0);
                 break
-        }
-
-        //code checks for change in direction in order to stop the motor and ramp up the speed to selected speed 
-        //this is to damper the current pull on the motor driver chip and not to reset the uBit
-        
+        }   
     }
 
     
@@ -1180,7 +1177,7 @@ namespace kitronik_lab_bit {
     ////////////////////////////
     
     /**
-     * Read the raw value of the analog input
+     * Read the raw value of the analog input, will return a value between 0 and 1023
      */
     //% subcategory="extra" 
     //% blockId=kitronik_labbit_raw_analog_input
