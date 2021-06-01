@@ -7,7 +7,7 @@
 ### Introduction @unplugged
 Learn how to using an analog input and use it to control the speed of a motor on the Kitronik LAB:bit.  The tutorial will go through what an analog input is, how is can be used to control a motor.
 
-![analog image](https://KitronikLtd.github.io/pxt-kitronik-labbit/assets/analog.png)
+![analog image](https://KitronikLtd.github.io/pxt-kitronik-lab-bit/assets/analog.png)
 
 ### Setup and connections of the LAB:bit @unplugged
 Make sure that the BBC micro:bit is plugged into the LAB:bit and with a micro USB (from the computer) is connected to the BBC micro:bit.  
@@ -15,7 +15,7 @@ Add the power supply to the LAB:bit with either the 3xAA battery cage or the USB
 
 ### What is an Analog input? @unplugged
 Analog inputs are the type of inputs that vary in change with a smooth progression. Examples of these are sound, pedals on a bike. This smoothness in change can give a fine tune to what is required.
-![analog image](https://KitronikLtd.github.io/pxt-kitronik-labbit/assets/analog.png)
+![analog image](https://KitronikLtd.github.io/pxt-kitronik-lab-bit/assets/analog.png)
 
 ## Speed control
 ### Step 1

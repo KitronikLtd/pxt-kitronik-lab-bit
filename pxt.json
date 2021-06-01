@@ -11,7 +11,13 @@
     "files": [
         "README.md",
         "main.ts",
-        "Tutorial_E_Speed_control.md"
+        "Tutorial_E_Speed_control.md",
+        "Tutorial_A_Make_A_Dice.md",
+        "Tutorial_B_Create_A_Switch.md",
+        "Tutorial_C_Colour_a_rainbow.md",
+        "Tutorial_D_Traffic_light_sequence.md",
+        "Tutorial_F_Scare_the_microbit.md",
+        "Tutorial_G_Parking_sensor.md"
     ],
     "testFiles": [
         "test.ts"
