@@ -5,12 +5,13 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "pxt-kitronik-memsmic": "github:kitronikltd/pxt-kitronik-memsmic#v0.0.30"
     },
     "files": [
         "README.md",
-        "main.blocks",
-        "main.ts"
+        "main.ts",
+        "Tutorial_E_Speed_control.md"
     ],
     "testFiles": [
         "test.ts"
@@ -19,5 +20,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
