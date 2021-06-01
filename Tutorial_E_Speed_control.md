@@ -32,33 +32,33 @@ basic.forever(function () {
 ```
 
 ### Step 3
-The ``||variables:set speed||`` needs to save the analog reading. Place a ``||kitronik_labbit.read analog input||`` into the end of the ``||variables:set speed||``.  
+The ``||variables:set speed||`` needs to save the analog reading. Place a ``||kitronik_lab_bit.read analog input||`` into the end of the ``||variables:set speed||``.  
 The analog input will give us a number from 0 to 100
 #### ~ tutorialhint
 ```blocks
 basic.forever(function () {
-    speed = kitronik_labbit.readAnalogInput()
+    speed = kitronik_lab_bit.readAnalogInput()
 })
 ```
 
 ### Step 4
-Now we have our readings saved, next the motor needs respond to the input. Add ``||kitronik_labbit.turn motor on||`` underneath the ``||variables:set speed||`` block.
+Now we have our readings saved, next the motor needs respond to the input. Add ``||kitronik_lab_bit.turn motor on||`` underneath the ``||variables:set speed||`` block.
 #### ~ tutorialhint
 ```blocks
 basic.forever(function () {
-    speed = kitronik_labbit.readAnalogInput()
-    kitronik_labbit.motorOn(kitronik_labbit.MotorDirection.CW, 0)
+    speed = kitronik_lab_bit.readAnalogInput()
+    kitronik_lab_bit.motorOn(kitronik_lab_bit.MotorDirection.CW, 0)
 })
 ```
 
 ### Step 5
 You may have noticed the new motor block has a speed set to 0, meaning the motor wont move. The speed of the motor works on a number between 0 and 100.  
-The analog input gives us the same range so we can add ``||variables:speed||`` into the ``||kitronik_labbit.turn motor on||`` block
+The analog input gives us the same range so we can add ``||variables:speed||`` into the ``||kitronik_lab_bit.turn motor on||`` block
 #### ~ tutorialhint
 ```blocks
 basic.forever(function () {
-    speed = kitronik_labbit.readAnalogInput()
-    kitronik_labbit.motorOn(kitronik_labbit.MotorDirection.CW, speed)
+    speed = kitronik_lab_bit.readAnalogInput()
+    kitronik_lab_bit.motorOn(kitronik_lab_bit.MotorDirection.CW, speed)
 })
 ```
 
