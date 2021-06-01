@@ -147,7 +147,7 @@ namespace kitronik_lab_bit {
     let IO_CONFIG_1 = 0x07
     let initialised = false
     
-    //masks for 
+    //masks for traffic lights leds on io expander
     let TRAFFIC_LIGHT_1_R_MASK = 0x01
     let TRAFFIC_LIGHT_1_Y_MASK = 0x02
     let TRAFFIC_LIGHT_1_G_MASK = 0x04
@@ -155,6 +155,7 @@ namespace kitronik_lab_bit {
     let TRAFFIC_LIGHT_2_Y_MASK = 0x10
     let TRAFFIC_LIGHT_2_G_MASK = 0x20
 
+    //value to show dice patterns
     let DICE_SYMBOL_1 = 0xF7
     let DICE_SYMBOL_2 = 0xEB
     let DICE_SYMBOL_3 = 0xE3
@@ -162,6 +163,7 @@ namespace kitronik_lab_bit {
     let DICE_SYMBOL_5 = 0xA2
     let DICE_SYMBOL_6 = 0x88
 
+    //value to show digits onto dice led
     let DICE_NUMBER_0 = [0x00, 0x88]
     let DICE_NUMBER_1 = [0xC0, 0xF8]
     let DICE_NUMBER_2 = [0x80, 0xA2]
@@ -173,6 +175,7 @@ namespace kitronik_lab_bit {
     let DICE_NUMBER_8 = [0x00, 0x80]
     let DICE_NUMBER_9 = [0x80, 0xC0]
 
+     //masks for dice leds on io expander
     let DICE_LOCATION_TL_MASK = 0x10
     let DICE_LOCATION_TC_MASK = 0x40
     let DICE_LOCATION_TR_MASK = 0x01
