@@ -7,7 +7,7 @@
 ### Introduction @unplugged
 Learn how to using an analog input and use it to control the speed of a motor on the Kitronik LAB:bit.  The tutorial will go through what an analog input is, how is can be used to control a motor.
 
-![analog image](https://KitronikLtd.github.io/pxt-kitronik-lab-bit/assets/analog.png)
+![analog image](https://KitronikLtd.github.io/pxt-kitronik-lab-bit/assets/metre.png)
 
 ### Setup and connections of the LAB:bit @unplugged
 Make sure that the BBC micro:bit is plugged into the LAB:bit and with a micro USB (from the computer) is connected to the BBC micro:bit.  
