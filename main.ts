@@ -1323,92 +1323,92 @@ namespace kitronik_lab_bit {
     //% weight=100 blockGap=8
     export function diceLED(diceLedPosition: DiceLocation, dicePower: LightShow): void {
         let buf = pins.createBuffer(3)
-        let port0Value = 0
-        let port1Value = 0
-        
+
         readOutputPort()
+        let port0Value = output0Value
+        let port1Value = output1Value
         //switch statement sorts by dice location
         //the following if statement determines whether the led should be on or off by masking the required bit of the register
         switch (diceLedPosition) {
             case DiceLocation.TL:
-                if (dicePower == LightShow.On){
-                    port0Value = output0Value | DICE_LOCATION_TL_MASK
+                if (dicePower == LightShow.Off){
+                    port1Value = output1Value | DICE_LOCATION_TL_MASK
                 }
                 //turn the red light off with XOR the require bit
-                else if (dicePower == LightShow.Off) {
-                   port0Value = output0Value ^ DICE_LOCATION_TL_MASK
+                else if (dicePower == LightShow.On) {
+                   port1Value = output1Value ^ DICE_LOCATION_TL_MASK
                 }
                 break
             case DiceLocation.TC:
-                if (dicePower == LightShow.On){
-                    port1Value = output1Value | DICE_LOCATION_TC_MASK
+                if (dicePower == LightShow.Off){
+                    port0Value = output0Value | DICE_LOCATION_TC_MASK
                 }
                 //turn the red light off with XOR the require bit
-                else if (dicePower == LightShow.Off) {
-                   port1Value = output1Value ^ DICE_LOCATION_TC_MASK
+                else if (dicePower == LightShow.On) {
+                   port0Value = output0Value ^ DICE_LOCATION_TC_MASK
                 }
                 break
             case DiceLocation.TR:
-                if (dicePower == LightShow.On){
-                    port0Value = output0Value | DICE_LOCATION_TR_MASK
+                if (dicePower == LightShow.Off){
+                    port1Value = output1Value | DICE_LOCATION_TR_MASK
                 }
                 //turn the red light off with XOR the require bit
-                else if (dicePower == LightShow.Off) {
-                   port0Value = output0Value ^ DICE_LOCATION_TR_MASK
+                else if (dicePower == LightShow.On) {
+                   port1Value = output1Value ^ DICE_LOCATION_TR_MASK
                 }
                 break
             case DiceLocation.ML:
-                if (dicePower == LightShow.On){
-                    port0Value = output0Value | DICE_LOCATION_ML_MASK
+                if (dicePower == LightShow.Off){
+                    port1Value = output1Value | DICE_LOCATION_ML_MASK
                 }
                 //turn the red light off with XOR the require bit
-                else if (dicePower == LightShow.Off) {
-                   port0Value = output0Value ^ DICE_LOCATION_ML_MASK
+                else if (dicePower == LightShow.On) {
+                   port1Value = output1Value ^ DICE_LOCATION_ML_MASK
                 }
                 break
             case DiceLocation.MC:
-                 if (dicePower == LightShow.On){
-                    port0Value = output0Value | DICE_LOCATION_MC_MASK
+                 if (dicePower == LightShow.Off){
+                    port1Value = output1Value | DICE_LOCATION_MC_MASK
                 }
                 //turn the red light off with XOR the require bit
-                else if (dicePower == LightShow.Off) {
-                   port0Value = output0Value ^ DICE_LOCATION_MC_MASK
+                else if (dicePower == LightShow.On) {
+                   port1Value = output1Value ^ DICE_LOCATION_MC_MASK
                 }
                 break
             case DiceLocation.MR:
-                if (dicePower == LightShow.On){
-                    port0Value = output0Value | DICE_LOCATION_MR_MASK
+                if (dicePower == LightShow.Off){
+                    port1Value = output1Value | DICE_LOCATION_MR_MASK
                 }
                 //turn the red light off with XOR the require bit
-                else if (dicePower == LightShow.Off) {
-                   port0Value = output0Value ^ DICE_LOCATION_MR_MASK
+                else if (dicePower == LightShow.On) {
+                   port1Value = output1Value ^ DICE_LOCATION_MR_MASK
                 }
                 break
             case DiceLocation.BL:
-                 if (dicePower == LightShow.On){
-                    port0Value = output0Value | DICE_LOCATION_BL_MASK
+                 if (dicePower == LightShow.Off){
+                    port1Value = output1Value | DICE_LOCATION_BL_MASK
                 }
                 //turn the red light off with XOR the require bit
-                else if (dicePower == LightShow.Off) {
-                   port0Value = output0Value ^ DICE_LOCATION_BL_MASK
+                else if (dicePower == LightShow.On) {
+                   port1Value = output1Value ^ DICE_LOCATION_BL_MASK
                 }
                 break
             case DiceLocation.BC:
-                if (dicePower == LightShow.On){
-                    port1Value = output1Value | DICE_LOCATION_BC_MASK
+                if (dicePower == LightShow.Off){
+                    port0Value = output0Value | DICE_LOCATION_BC_MASK
                 }
                 //turn the red light off with XOR the require bit
-                else if (dicePower == LightShow.Off) {
-                   port1Value = output1Value ^ DICE_LOCATION_BC_MASK
+                else if (dicePower == LightShow.On) {
+                   port0Value = output0Value ^ DICE_LOCATION_BC_MASK
                 }
                 break
             case DiceLocation.BR:
-                if (dicePower == LightShow.On){
-                    port0Value = output0Value | DICE_LOCATION_BR_MASK
+                if (dicePower == LightShow.Off){
+                    port1Value = output1Value | DICE_LOCATION_BR_MASK
                 }
                 //turn the red light off with XOR the require bit
-                else if (dicePower == LightShow.Off) {
-                   port0Value = output0Value ^ DICE_LOCATION_BR_MASK
+                else if (dicePower == LightShow.On) {
+                   port1Value = output1Value ^ DICE_LOCATION_BR_MASK
                 }
                 break
             }
