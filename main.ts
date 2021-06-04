@@ -286,6 +286,15 @@ namespace kitronik_lab_bit {
         basic.pause(1)
     }
 
+    function varLimitChecker(value: number, minValue: number, maxValue: number): number {
+        if (value <= minValue){
+            value = minValue
+        }
+        else if (value >= maxValue){
+            value = maxValue
+        }
+        return value
+    }
     ////////////////////////////////
     //         ANALOG IP          //
     ////////////////////////////////
@@ -417,6 +426,8 @@ namespace kitronik_lab_bit {
             kitronik_microphone.init()
             setup()
         }
+        claps = varLimitChecker(claps, 1, 10)
+        timerperiod = varLimitChecker(timerperiod, 1, 10)
         kitronik_microphone.numberOfClaps = claps
         kitronik_microphone.period = (timerperiod * 1000)
         kitronik_microphone.sound_handler = soundSpike_handler
@@ -593,7 +604,7 @@ namespace kitronik_lab_bit {
     export function diceShow(diceRoll: number): void {
         let buf = pins.createBuffer(2)
         let value = 0
-        
+        diceRoll = varLimitChecker(diceRoll, 1, 6)
         if (initialised == false) {
             setup()
         }
@@ -635,10 +646,7 @@ namespace kitronik_lab_bit {
         let buf = pins.createBuffer(3)
         let port0Value = 0
         let port1Value = 0
-        if (diceNumber >= 10)
-        {
-            diceNumber = 9
-        }
+        diceNumber = varLimitChecker(diceNumber, 0, 9)
         //take readings of the other port value due to two pins are on the other port
         readOutputPort()
         output0Value & (0xFF - TRAFFIC_LIGHT_2_G_MASK)
@@ -913,6 +921,7 @@ namespace kitronik_lab_bit {
         //% brightnessPercent.min=0 brightnessPercent.max=100
         //% parts="neopixel"
         setBrightnessPercent(brightnessPercent: number): void {
+            brightnessPercent = varLimitChecker(brightnessPercent, 0, 100)
             let brightnessNum = brightnessPercent * 2.55
             this.brightness = brightnessNum & 0xff;
         }
@@ -1143,7 +1152,7 @@ namespace kitronik_lab_bit {
     //%color=#00A654
     //% speed.min=0 speed.max=100
     export function motorOn(newMotorDir: MotorDirection, speed: number): void {
-
+        speed = varLimitChecker(speed, 0, 100)
         /*first convert 0-100 to 0-1024 (approx) We wont worry about the lsat 24 to make life simpler*/
         let OutputVal = Math.clamp(0, 100, speed) * 10;
         //depending on the selected direction set the PWM speed on the required pin
@@ -1251,6 +1260,7 @@ namespace kitronik_lab_bit {
             kitronik_microphone.init()
             setup()
         }
+        value = varLimitChecker(value, 0, 100)
         value = Math.clamp(0, 100, value)
         kitronik_microphone.threshold = kitronik_microphone.baseVoltageLevel + (105 - value)
     }
