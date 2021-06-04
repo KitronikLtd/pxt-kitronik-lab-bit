@@ -236,7 +236,6 @@ namespace kitronik_lab_bit {
             cmEquationDivider = ULTRASONIC_V1_DIV_CM
             inEquationDivider = ULTRASONIC_V1_DIV_IN
         }
-
         //set microphone pin to P1 on the LAB:bit
         kitronik_microphone.setMicrophonePin("P1")
         initialised = true //we have setup, so dont come in here again.
@@ -319,6 +318,10 @@ namespace kitronik_lab_bit {
     //measure function drives the ultrasonic sensor with the required selection of units and returns the measure distances as an int
     function measure(units: number, maxCmDistance = 500): number {
         let measure = 0
+        if (initialised == false) {
+            kitronik_microphone.init()
+            setup()
+        }
         while(measure == 0) {
             // send pulse
             pins.setPull(triggerPin, PinPullMode.PullNone);
@@ -376,7 +379,7 @@ namespace kitronik_lab_bit {
     ////////////////////////////////
 
     /**
-    * Read Sound Level blocks returns back a number 0-100 of the current sound level at that point
+    * Read Sound Level blocks returns back a number 0-100 of the current sound level at the point the block is used
     */
     //% subcategory="Inputs"
     //% group="Microphone"
@@ -392,7 +395,7 @@ namespace kitronik_lab_bit {
     }
 
     /**
-    * Read Average Sound Level blocks returns back a number 0-100 of the current sound level at that point
+    * Read Average Sound Level blocks returns back a number 0-100 to represent the average sound level from 5 measurements
     */
     //% subcategory="Inputs"
     //% group="Microphone"
@@ -868,8 +871,10 @@ namespace kitronik_lab_bit {
         //% subcategory="Colour Lights"
         //% blockId="kitronik_labbit_set_zip_color" block="%prettyLights|set ZIP LED %zipLedNum|to %rgb=colorNumberPicker2" 
         //% weight=80 blockGap=8
+        //% zipLedNum.min = 0  zipLedNum.max=6
         //% parts="neopixel"
         setZipLedColor(zipLedNum: number, rgb: number): void {
+            zipLedNum = varLimitChecker(zipLedNum, 0, 6)
             this.setPixelRGB(zipLedNum >> 0, rgb >> 0);
         }
 
@@ -1024,7 +1029,7 @@ namespace kitronik_lab_bit {
 
     /**
      * Create a new ZIP LED driver for a number of attached ZIP LEDs.
-     * @param numleds the number of ZIP LEDs connected to the Klip Motor board, eg: 7
+     * @param numleds the number of ZIP LEDs connected to the LAB bit board, eg: 7
      */
     //% subcategory="Colour Lights"
     //% blockId="kitronik_labbit_zip_create" block="string of %numleds|ZIP LEDs"
@@ -1153,6 +1158,19 @@ namespace kitronik_lab_bit {
     //% speed.min=0 speed.max=100
     export function motorOn(newMotorDir: MotorDirection, speed: number): void {
         speed = varLimitChecker(speed, 0, 100)
+        if (speed >= 5){
+            switch (newMotorDir) {
+                case MotorDirection.CW:
+                    pins.analogWritePin(AnalogPin.P16, 255);
+                    pins.digitalWritePin(DigitalPin.P12, 0); /*Write the low side digitally, to allow the 3rd PWM to be used if required elsewhere*/
+                    break
+                case MotorDirection.CCW:
+                    pins.analogWritePin(AnalogPin.P12, 255);
+                    pins.digitalWritePin(DigitalPin.P16, 0);
+                    break
+            } 
+            basic.pause(25)
+        }
         /*first convert 0-100 to 0-1024 (approx) We wont worry about the lsat 24 to make life simpler*/
         let OutputVal = Math.clamp(0, 100, speed) * 10;
         //depending on the selected direction set the PWM speed on the required pin
@@ -1286,37 +1304,37 @@ namespace kitronik_lab_bit {
         {
            switch (lightStage) {
                 case LightStatus.Stop:
-                    bitMask = TRAFFIC_LIGHT_1_R_MASK
+                    bitMask = 0x06      //value is 0110 in binary giving the red bit as a 0 to turn the LED on, the value on needs to be in bits 0-2 
                     break
                 case LightStatus.GetReady:
-                    bitMask = TRAFFIC_LIGHT_1_R_MASK + TRAFFIC_LIGHT_1_Y_MASK
+                    bitMask = 0x04      //value is 0100 in binary giving the red and yellow bit as a 0 to turn the LED on, the value on needs to be in bits 0-2
                     break
                 case LightStatus.Go:
-                    bitMask = TRAFFIC_LIGHT_1_G_MASK
+                    bitMask = 0x03      //value is 0011 in binary giving green bit of the register as a 0 to turn the LED on, the value on needs to be in bits 0-2
                     break
                 case LightStatus.ReadyToStop:
-                    bitMask = TRAFFIC_LIGHT_1_Y_MASK
+                    bitMask = 0x05      //value is 0101 in binary giving the yellow bit as a 0 to turn the LED on, the value on needs to be in bits 0-2
                     break
             }
-            value = (output0Value && 0xF0) + bitMask
+            value = (output0Value & 0xF8) + bitMask //output value is AND'ed with 1111 1000 to keep current port value and then the mask is added on
         }
         else if (selectedLight == TrafficLight.two)
         {
            switch (lightStage) {
                 case LightStatus.Stop:
-                    bitMask = TRAFFIC_LIGHT_2_R_MASK
+                    bitMask = 0x30      //value is 0011 "0"000 in binary giving the red bit as a 0 to turn the LED on, the value on needs to be in bits 0-2 
                     break
                 case LightStatus.GetReady:
-                    bitMask = TRAFFIC_LIGHT_2_R_MASK + TRAFFIC_LIGHT_2_Y_MASK
+                    bitMask = 0x20      //value is 001"0 0"000 in binary giving the red and yellow bit as a 0 to turn the LED on, the value on needs to be in bits 0-2
                     break
                 case LightStatus.Go:
-                    bitMask = TRAFFIC_LIGHT_2_G_MASK
+                    bitMask = 0x18      //value is 00"0"1 1000 in binary giving green bit of the register as a 0 to turn the LED on, the value on needs to be in bits 0-2
                     break
                 case LightStatus.ReadyToStop:
-                    bitMask = TRAFFIC_LIGHT_2_Y_MASK
+                    bitMask = 0x28      //value is 001"0" 1000 in binary giving the yellow bit as a 0 to turn the LED on, the value on needs to be in bits 0-2
                     break
             }
-            value = (output0Value && 0x0F) + bitMask
+            value = (output0Value & 0xC7) | bitMask //output value is AND'ed with 1100 0111 to keep current port value and then the mask is added on
         }
         writeOutputPortSingleByte(OUTPUT_0_REG, value)
     }
