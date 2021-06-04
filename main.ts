@@ -611,6 +611,11 @@ namespace kitronik_lab_bit {
         if (initialised == false) {
             setup()
         }
+
+        //read values so can turn the top and bottom centre LED's off 
+        readOutputPort()
+        output0Value  = output0Value | 0xC0
+        writeOutputPortSingleByte(OUTPUT_0_REG, output0Value)
         //switch value of dice roll and set value to the require byte for the required dice symbol
         switch (diceRoll) {
             case 1:
@@ -824,7 +829,6 @@ namespace kitronik_lab_bit {
                 for (let i = 0; i < n; ++i) {
                     if (i <= v) {
                         const g = Math.idiv(i * 255, n1);
-                        //this.setZipLedColor(i, haloDisplay.rgb(0, g, 255 - g));
 						this.setZipLedColor(i, rgb(g, 255 - g, 0));
                     }
                     else this.setZipLedColor(i, 0);
