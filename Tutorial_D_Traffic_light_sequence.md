@@ -41,11 +41,11 @@ Click ``|Download|`` to program the BBC micro:bit with the code. A Red LED on tr
 ### What is an algorithm? @unplugged
 Algorithms are a step-by-step guide for code and/or computer to completing a task. The algorithm for a set of trafficlights would be the order the lights change.  
 It is possible to have algorithm for making a sandwich.  So long that the algorithm produces the end point require it does not matter which order the steps are take to complete it.
-![step image](https://KitronikLtd.github.io/pxt-kitronik-labbit/assets/step.png)
+![step image](https://KitronikLtd.github.io/pxt-kitronik-lab-bit/assets/step.png)
 
 ### What is the algorithm for traffic lights? @unplugged
 See if you can write done the algorithms (step-by-step process) for the light sequence.  This will come in handy when we try and code the algorithm.
-![trafficLight image](https://KitronikLtd.github.io/pxt-kitronik-labbit/assets/trafficLight.png)
+![trafficLight image](https://KitronikLtd.github.io/pxt-kitronik-lab-bit/assets/trafficLight.png)
 
 ### Step 3
 Now we have our algorithm, lets start coding. There is 4 main stages of which lights are shown on a traffic light.  We can do the next one together.  
