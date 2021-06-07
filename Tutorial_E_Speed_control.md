@@ -27,7 +27,7 @@ Click on the ``||variables:Variables||`` section from the list of blocks, then c
 This pops up a window to give your variable its name. Let's call it ``||variables:speed||``.
 
 ### Step 2
-Next we want to use the ``||variables:set speed||`` block and place it into the ``||basic:forever||`` loop.
+Next, we want to use the ``||variables:set speed||`` block and place it into the ``||basic:forever||`` loop.
 #### ~ tutorialhint
 ```blocks
 basic.forever(function () {
