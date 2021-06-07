@@ -18,9 +18,9 @@ When done, click ``||kitronik_lab_bit.Ok||`` to continue.
 
 ### What is a switch? @unplugged
 A switch is another word for a button. Buttons and switches are used in lots of different products. For example: TV remotes, doorbells, light switches etc.  
-Switches are used to indicate to computers that an activity needs to happen. Typically with two positions such as 'On' or 'Off'.  
-Have a think of any other products around that have a buttons or switches.  How many can you name?  
-The code that will be create will have a basic activity happen once a switch/ button has been pressed the BBC micro:bit LEDs/lights will turn On.  
+Switches are used to indicate to computers that an activity needs to happen, typically with two positions, such as 'On' or 'Off'.  
+Have a think of any other products that have buttons or switches. How many can you name?  
+The code that will be create will have a basic activity happen once a switch/button has been pressed.  
 
 ![switch image](https://KitronikLtd.github.io/pxt-kitronik-lab-bit/assets/switch.png)
 

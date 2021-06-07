@@ -90,8 +90,9 @@ Click ``|Download|`` to program the BBC micro:bit with the code. All the ZIP LED
 If the code has not worked correctly, go back and check the code with the tutorial hints.
 
 ### Step 7
-Rather than having the ZIP LED's static, there are block that allow the set colours to move to the next ZIP LED position.  In the  ``||basic:forever loop||`` add a ``||kitronik_lab_bit.rotate ZIP LEDs by||`` block.  
-This will move the colour of the ZIP LED's to the right by 1 position.  If they have reached the end the position will return back to the first ZIP LED position.
+Rather than having the ZIP LEDs static, there is a block that allows the set colours to move to the next ZIP LED position.  
+In the ``||basic:forever||`` loop, add a ``||kitronik_lab_bit.rotate ZIP LEDs by||`` block.  
+This will move the colour of the ZIP LEDs to the right by 1 position. If they have reached the end position, they will return back to the first ZIP LED position.
 #### ~ tutorialhint
 ```blocks
 let prettyLights: kitronik_lab_bit.ZIPString = null
@@ -101,7 +102,8 @@ basic.forever(function () {
 ```
 
 ### Step 8
-Similar to the previous steps where the ZIP LED's have been changed, this change needs to have a show block after it.  See if you can remember which block it is and where it needs to go.
+Similar to the previous steps where the ZIP LEDs have been changed, this change needs to have a ``||kitronik_lab_bit.show||`` block after it.  
+See if you can remember which block it is, and where it needs to go.
 #### ~ tutorialhint
 ```blocks
 let prettyLights: kitronik_lab_bit.ZIPString = null
@@ -113,8 +115,8 @@ basic.forever(function () {
 
 ### Step 9
 Computers can process instructions (also known as algorithms) very quickly.  If we downloaded the code to the BBC micro:bit we would not see the changes being made, as the code would be looping around so quickly.  
-To get around ``||basic:pause||`` after the ``||kitronik_lab_bit.show changes||`` block.  Depending what value of the pause is set to will alter how fast the positions move.  The bigger the pause the slowly the moving and visa-versa.  
-In this example the pause will be set to 500milliseconds (or 0.5 seconds)
+So that we can actually see the changes, add a ``||basic:pause||`` after the ``||kitronik_lab_bit.show changes||`` block. The value the pause is set to will alter how fast the positions move. The bigger the pause, the slower the movement and vice versa.  
+In this example, the pause will be set to 500 milliseconds (or 0.5 seconds).
 #### ~ tutorialhint
 ```blocks
 let prettyLights: kitronik_lab_bit.ZIPString = null
@@ -129,7 +131,7 @@ basic.forever(function () {
 Let's ``|Download|`` the code and see the rainbow colours move.
 
 ### Colour a rainbow tutorial complete @unplugged
-Great job, you have succeeded in setting the ZIP LED's to different colours and make them switch positions.  You can take this code change the pause time to change the speed, or make the rotation by 1 to another number.  
+Great job, you have succeeded in setting the ZIP LEDs to different colours and make them switch positions. You can take this code and change the pause time to change the speed, or change the rotation by 1 to another number.  
 This tutorial has been completed, however there are still loads of project that could be created.  
-If you wish to know more on the Kitronik LAB:bit visit:  
+If you wish to know more about the Kitronik LAB:bit visit:  
 http://www.kitronik.co.uk/56101
