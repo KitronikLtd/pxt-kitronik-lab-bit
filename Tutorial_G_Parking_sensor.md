@@ -1,30 +1,33 @@
 ### @activities true
 ### @explicitHints true
 
-# Tutorial - Parking sensor
+# Tutorial - Parking Sensor
 
 ## Introduction
 ### Introduction @unplugged
-The tutorial will demonstrate the use of the ultrasonic sensor on the Kitronik LAB:bit.  The tutorial will go through how an ultrasonic sensor works, and create a parking sensor.
+This tutorial will demonstrate the use of the ultrasonic sensor on the Kitronik LAB:bit.  
+The tutorial will go through how an ultrasonic sensor works and creating a parking sensor.
 
 ![car image](https://KitronikLtd.github.io/pxt-kitronik-lab-bit/assets/car.png)
 
 ### Setup and connections of the LAB:bit @unplugged
-Make sure that the BBC micro:bit is plugged into the LAB:bit and with a micro USB (from the computer) is connected to the BBC micro:bit.  
-Add the power supply to the LAB:bit with either the 3xAA battery cage or the USB lead to a mains adapter.  When done click next to continue.
+Make sure that the BBC micro:bit is plugged into the LAB:bit with a micro USB (from the computer) connected to the BBC micro:bit.  
+Add the power supply to the LAB:bit with either the 3xAA battery cage or the USB lead to a mains adapter.  
+When done, click ``||kitronik_lab_bit.Ok||`` to continue.
 
 ### How does an ultrasonic sensor work? @unplugged
-Ultrasonic sensors work by having one part of the device send out a high pitch noise (so high humans cant hear it), then the second half of the sensors measures to returning echo when it bounces from an object.  
-This is another version of echolocation that Bats use to find objects in the night and Dolphins have to find things in the oceans.
+Ultrasonic sensors work by having one part of the device send out a high pitch noise (so high that humans can't hear it), then the second half of the sensor measures the returning echo when it bounces off an object.  
+This is another version of echolocation that bats use to find objects in the night and dolphins use to find things in the oceans.
 ![dolphin image](https://KitronikLtd.github.io/pxt-kitronik-lab-bit/assets/dolphin.png)
 
 ## Measure the distance
 ### Step 1
-To begin with we need to make a variable. The variable will be a named item that save the measuring reading from the ultrasonic.  
-Click on the "variables" section from the list of block, then click on "Make a Variable".  This pop up a window to give your variable its need.  Lets call it "distance".
+To begin with, we need to make a variable. The variable will be a named item that saves the reading from the ultrasonic sensor.  
+Click on the ``||variables:Variables||`` section from the list of blocks, then click on **Make a Variable...**.  
+This pops up a window to give your variable its name. Let's call it ``||variables:distance||``.
 
 ### Step 2
-Next we want to use the ``||variables:set distance||`` place it into the ``||basic:forever loop||``.
+Next, we want to use the ``||variables:set distance||`` and place it into the ``||basic:forever||`` loop.
 #### ~ tutorialhint
 ```blocks
 let distance = 0
@@ -34,7 +37,7 @@ basic.forever(function () {
 ```
 
 ### Step 3
-The ``||variables:set distance||`` needs to save the ultrasonic measurement reading. Place a ``||kitronik_lab_bit.measure distance in cm||`` into the end of the ``||variables:set distance||``.  
+The ``||variables:set distance||`` block needs to save the ultrasonic measurement reading. Place a ``||kitronik_lab_bit.measure distance in cm||`` block into the end of the ``||variables:set distance||``.  
 The reading from the ultrasonic will be in centimeters in this example, but if you want to measure in inches just use the ``||kitronik_lab_bit.measure distance in inches||`` block
 #### ~ tutorialhint
 ```blocks
@@ -45,8 +48,8 @@ basic.forever(function () {
 ```
 
 ### Step 4
-We need to determine next if the distance to an object is close enough to start the beeps to alert someone.  To do this desicion making there is a block call ``||logic:if||``.  
-From the list of blocks, insert an ``||logic:if||`` block after the ``||variables:set distance||``.
+We need to determine next if the distance to an object is close enough to start the beeps to alert someone.  
+To do this desicion making, there is a block call ``||logic:if||``. From the list of blocks, insert an ``||logic:if||`` block after the ``||variables:set distance||``.
 #### ~ tutorialhint
 ```blocks
 let distance = 0
@@ -59,8 +62,9 @@ basic.forever(function () {
 ```
 
 ### Step 5
-If blocks like this. If something happens, use the blocks in the bracket.  
-So in the bracket we want the blocks for the micro:bit to react to the sound. In the backet of the ``||logic:if||`` insert ``||music:playTone||`` and select 1/8 beat.  
+``||logic:if||`` statements work like this: If something happens, use the blocks in the bracket.  
+So, in the bracket, we want the blocks for the micro:bit to react to the sound.  
+Insert ``||music:playTone||`` into the bracket and select 1/8 beat.  
 #### ~ tutorialhint
 ```blocks
 let distance = 0
@@ -73,7 +77,7 @@ basic.forever(function () {
 ```
 
 ### Step 6
-Next we will add in a ``||basic:pause||`` to allow a gap between each tone being sounded. Later on we will add a cool feature to this block.
+Next, we will add in a ``||basic:pause||`` to allow a gap between each tone being sounded. Later on we will add another cool feature to this block...
 #### ~ tutorialhint
 ```blocks
 let distance = 0
@@ -87,9 +91,9 @@ basic.forever(function () {
 ```
 
 ### Step 7
-Currently we only have a "true" condition in the if statement.  Our condition that needs to check if the distance is less than (a number).
-Add from the logic section a ``||logic:less than||`` block and place it where the word "true" is in the ``||logic:if||`` block.  
-NOTE: the less than symbol looks like '<'
+Currently, we only have a ``||logic:true||`` condition in the ``||logic:if||`` statement. Our condition that needs to be checked is whether the distance is less than (a number).
+From the ``||logic:Logic||`` section, add a ``||logic:less than||`` block and place it where the word **true** is in the ``||logic:if||`` block.  
+**NOTE:** The less than symbol looks like ``||logic:<||``.
 #### ~ tutorialhint
 ```blocks
 let distance = 0
@@ -103,7 +107,7 @@ basic.forever(function () {
 ```
 
 ### Step 8
-Looking back at our condition "if the distance is less than (a number)". Add a ``||variables:distance||`` into the first position of the left '0' of the ``||logic:less than||`` block.
+To continue making the condition checking statement, add a ``||variables:distance||`` block into the first position in the ``||logic:less than||`` check.
 #### ~ tutorialhint
 ```blocks
 let distance = 0
@@ -117,9 +121,9 @@ basic.forever(function () {
 ```
 
 ### Step 9
-The number we need to compare against maybe different depending on what opbjects are around you.  
-Make sure you have atleast 20 centimeters clearance from the ultrasonic sensors on the LAB:bit.    
-To start with let begining with setting the ``||variables:distance||`` ``||logic:less than||`` 20.  
+The number we need to compare against might be different depending on what objects are around you.  
+Make sure you have at least 20cm clearance from the ultrasonic sensors on the LAB:bit.  
+To start with, set the check to ``||variables:distance||`` ``||logic:less than||`` 20.  
 #### ~ tutorialhint
 ```blocks
 basic.forever(function () {
@@ -132,11 +136,13 @@ basic.forever(function () {
 ```
 
 ### Step 11
-Click ``|Download|`` to program the BBC micro:bit with the code. Test your code my placing any obeject within 20 centimeters of the sensor and the LAB:bit should beep when its detected it.  
-NOTE: Check the volumne control on the speaker if no sound is being made.
+Click ``|Download|`` to program the BBC micro:bit with the code.  
+Test your code my placing any object within 20cm of the sensor and the LAB:bit should beep when it's detected it.  
+**NOTE:** Check the volumne control on the speaker if no sound is being made.
 
 ### Step 12
-We got our basic detection working.  Now lets add a cool feature, this will change the pause time depending on the distance measured.  In the ``||basic:pause||`` add ``||math:times||`` block.  
+We got our basic detection working. Now let's add a cool feature which will change the pause time depending on the distance measured.  
+In the ``||basic:pause||``, add a ``||math:times||`` block.  
 #### ~ tutorialhint
 ```blocks
 basic.forever(function () {
@@ -149,7 +155,7 @@ basic.forever(function () {
 ```
 
 ### Step 13
-The distance measure will form part of the pause equation.  Add ``||variables:distance||`` into the left part of the ``||math:times||`` block.
+The distance measurement will form part of the pause equation. Add ``||variables:distance||`` into the left part of the ``||math:times||`` block.
 #### ~ tutorialhint
 ```blocks
 basic.forever(function () {
@@ -162,7 +168,8 @@ basic.forever(function () {
 ```
 
 ### Step 14
-The distance work on 1 to 20, however the pause block works in milliseconds.  So we need to increase our distance reading to make for a good pause length.  In this example we will use 50.
+The distance works from 1 to 20, but the ``||basic:pause||`` block works in milliseconds.  
+We need to increase our distance reading to make sure there is a good pause length. In this example, we will multiply by 50.
 #### ~ tutorialhint
 ```blocks
 basic.forever(function () {
@@ -175,11 +182,11 @@ basic.forever(function () {
 ```
 
 ### Step 15
-Lets ``|Download|`` to program the BBC micro:bit. Test your code  and see if the time between each 'beep' changes when an objects gets closer.
-NOTE: Check the volumne control on the speaker if no sound is being made.
+Let's ``|Download|`` the program the BBC micro:bit. Test your code and see if the time between each 'beep' changes when an object gets closer.  
+**NOTE:** Check the volumne control on the speaker if no sound is being made.
 
 ### Parking sensor tutorial complete @unplugged
-Great job on creating a parking sensor. You can take the LAB:bit and make sure you dont bump into any object.  
-This tutorial has been completed, however there are still loads of project that could be created.  
-If you wish to know more on the Kitronik LAB:bit visit:  
+Great job on creating a parking sensor. You can take the LAB:bit and make sure you don't bump into anything.  
+This tutorial has been completed, however, there are still loads of project that could be created.  
+If you wish to know more about the Kitronik LAB:bit visit:  
 http://www.kitronik.co.uk/56101
