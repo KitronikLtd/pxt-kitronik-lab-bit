@@ -188,6 +188,6 @@ Click ``|Download|`` and have a look at the sequence now.
 
 ### Traffic Light tutorial complete @unplugged
 WOW, you have done great! We managed to make an alogrithm and code it. See if you can add a second sequence on to the other set of traffic lights and have both changing. This could be made into a crossing.  
-This tutorial has been completed, however there are still loads of project that could be created.  
+This tutorial has been completed, however, there are still loads of project that could be created.  
 If you wish to know more about the Kitronik LAB:bit visit:  
 http://www.kitronik.co.uk/56101

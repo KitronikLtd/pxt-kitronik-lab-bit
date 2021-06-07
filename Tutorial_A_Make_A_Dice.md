@@ -80,6 +80,6 @@ Finally the last stage, click ``|Download|`` and try shaking the LAB:bit.
 
 ### Make a Dice tutorial complete @unplugged
 Well done, you have succeeded in creating an electronic dice in code.  
-This tutorial has been completed, however there are still loads of project that could be created.  
+This tutorial has been completed, however, there are still loads of project that could be created.  
 If you wish to know more about the Kitronik LAB:bit visit:  
 http://www.kitronik.co.uk/56101

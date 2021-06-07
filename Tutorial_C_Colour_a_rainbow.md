@@ -132,6 +132,6 @@ Let's ``|Download|`` the code and see the rainbow colours move.
 
 ### Colour a rainbow tutorial complete @unplugged
 Great job, you have succeeded in setting the ZIP LEDs to different colours and make them switch positions. You can take this code and change the pause time to change the speed, or change the rotation by 1 to another number.  
-This tutorial has been completed, however there are still loads of project that could be created.  
+This tutorial has been completed, however, there are still loads of project that could be created.  
 If you wish to know more about the Kitronik LAB:bit visit:  
 http://www.kitronik.co.uk/56101

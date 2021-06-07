@@ -80,6 +80,6 @@ If the switch activates then the material is a conductive material.
 
 ### Create a switch tutorial complete @unplugged
 Well done, you have succeeded in creating a switch input.  
-This tutorial has been completed, however there are still loads of project that could be created.  
+This tutorial has been completed, however, there are still loads of project that could be created.  
 If you wish to know more about the Kitronik LAB:bit visit: 
 http://www.kitronik.co.uk/56101
