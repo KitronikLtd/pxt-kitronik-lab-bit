@@ -36,7 +36,7 @@ You might like to research into all the colours of the spectrum before continuin
 
 ### Step 2
 Still adding blocks into the ``||basic:on start||`` bracket, let's set the first LED to Red. This can be done by adding the ``||kitronik_lab_bit.set ZIP LED to||`` block to the bottom of the bracket.  
-From the colour icon at the end of the block, click on this to pull up the colour pallet for the LED. Then click on the required colour.  
+From the colour icon at the end of the block, click on this to pull up the colour palette for the LED. Then click on the required colour.  
 **NOTE:** You may notice that the block has a 0 instead of a 1. In the coding world, 0 is always the first number to use. So for the 7 LEDs, they will be addressed 0 to 6.
 #### ~ tutorialhint
 ```blocks
@@ -45,7 +45,7 @@ prettyLights.setZipLedColor(0, 0xff0000)
 ```
 
 ### Step 3
-Great, lets add another of the ``||kitronik_lab_bit.set ZIP LED to||`` blocks. This is for the second LED, so change the '0' to a '1'.  From the colour pallet, select Orange.
+Great, lets add another of the ``||kitronik_lab_bit.set ZIP LED to||`` blocks. This is for the second LED, so change the '0' to a '1'.  From the colour palette, select Orange.
 #### ~ tutorialhint
 ```blocks
 let prettyLights = kitronik_lab_bit.createZIPString(7)
