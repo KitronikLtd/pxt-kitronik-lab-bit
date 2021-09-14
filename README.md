@@ -10,6 +10,32 @@ This repository can be added as an **extension** in MakeCode.
 * click on **Extensions** under the gearwheel menu
 * search for **https://github.com/kitronikltd/pxt-kitronik-lab-bit** and import
 
+# Online Tutorials
+
+Using the MakeCode Tutorial tool, there are 7 tutorials to work through that will give examples of all the different inputs and outputs usable on the LAB:brightness
+
+[Tutorial - Make a Dice](https://makecode.microbit.org/#tutorial:github:kitronikltd/pxt-kitronik-lab-bit/Tutorial_A_Make_A_Dice)
+Using the blocks create an electronics dice
+
+[Tutorial - Create a switch](https://makecode.microbit.org/#tutorial:github:kitronikltd/pxt-kitronik-lab-bit/Tutorial_B_Create_A_Switch)
+With a mixture of coding and materials create a switch
+
+[Tutorial - Colour a rainbow](https://makecode.microbit.org/#tutorial:github:kitronikltd/pxt-kitronik-lab-bit/Tutorial_C_Colour_a_rainbow)
+Colour the RGB LED's to make all the colours of the rainbow
+
+[Tutorial - Traffic light sequence](https://makecode.microbit.org/#tutorial:github:kitronikltd/pxt-kitronik-lab-bit/Tutorial_D_Traffic_light_sequence)
+Learning how to create sequence with an example of a Traffic LightShow
+
+[Tutorial - Speed Control](https://makecode.microbit.org/#tutorial:github:kitronikltd/pxt-kitronik-lab-bit/Tutorial_E_Speed_control)
+Control the onboard motor with a varying input
+
+[Tutorial - Scare the micro:bit](https://makecode.microbit.org/#tutorial:github:kitronikltd/pxt-kitronik-lab-bit/Tutorial_F_Scare_the_microbit)
+Using the microphone input to see if you can scare the micro:bit
+
+[Tutorial - Parking sensor](https://makecode.microbit.org/#tutorial:github:kitronikltd/pxt-kitronik-lab-bit/Tutorial_G_Parking_sensor)
+Beep Beep.. parking your LAB:bit with the use of the ultrasonic sensor
+
+
 # pxt-kitronik-lab-bit Blocks
 
 Custom blocks for www.kitronik.co.uk/56101 Kitronik LAB:bit.  There are easy to use blocks to take full usage of all the input and output hardward on the product.
