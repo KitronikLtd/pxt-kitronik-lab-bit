@@ -12,7 +12,7 @@ This repository can be added as an **extension** in MakeCode.
 
 # Online Tutorials
 
-Using the MakeCode Tutorial tool, there are 7 tutorials to work through that will give examples of all the different inputs and outputs usable on the LAB:brightness
+Using the MakeCode Tutorial tool, there are 7 tutorials to work through that will give examples of all the different inputs and outputs usable on the LAB:bit
 
 [Tutorial - Make a Dice](https://makecode.microbit.org/#tutorial:github:kitronikltd/pxt-kitronik-lab-bit/Tutorial_A_Make_A_Dice)
 Using the blocks create an electronics dice
