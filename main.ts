@@ -604,7 +604,7 @@ namespace kitronik_lab_bit {
     }
 
 	/**
-     * Block sets the traffic light to aparticular status using words
+     * Block sets the traffic light to a particular status using words
 	 * @param selectedLight  is the selection of which traffic light will be controlled
 	 * @param lightStatus to display the traffic light control
      */
