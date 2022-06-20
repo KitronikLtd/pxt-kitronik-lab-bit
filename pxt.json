@@ -17,7 +17,9 @@
         "Tutorial_C_Colour_a_rainbow.md",
         "Tutorial_D_Traffic_light_sequence.md",
         "Tutorial_F_Scare_the_microbit.md",
-        "Tutorial_G_Parking_sensor.md"
+        "Tutorial_G_Parking_sensor.md",
+        "_locales/es-ES/pxt-kitronik-lab-bit-jsdoc-strings.json",
+        "_locales/es-ES/pxt-kitronik-lab-bit-strings.json"
     ],
     "testFiles": [
         "test.ts"
